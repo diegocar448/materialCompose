@@ -104,22 +104,22 @@ class MainActivity : ComponentActivity() {
 
 
         //Box
-        Box(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            Surface(
-                color = Color.Green,
-                modifier = Modifier.width(100.dp).height(100.dp)
-            ) {
-
-            }
-            Surface(
-                color = Color.Blue,
-                modifier = Modifier.width(100.dp).height(100.dp)
-            ) {
-
-            }
-        }
+//        Box(
+//            modifier = Modifier.fillMaxSize()
+//        ) {
+//            Surface(
+//                color = Color.Green,
+//                modifier = Modifier.width(100.dp).height(100.dp)
+//            ) {
+//
+//            }
+//            Surface(
+//                color = Color.Blue,
+//                modifier = Modifier.width(100.dp).height(100.dp)
+//            ) {
+//
+//            }
+//        }
 
     }
 
