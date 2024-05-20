@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarDefaults.backgroundColor
@@ -27,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.com.diegocar.testecompose.componentes.Botao
 import calculadoraDeImcTheme
 
 
@@ -43,83 +45,27 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun PrimeiraTela(){
-//        Scaffold(
-//            topBar = {
-//                TopAppBar(
-//                    backgroundColor = Color.Blue
-//                ){
-//                    Text(
-//                        text = "Primeiro Aplicativo",
-//                        fontSize = 18.sp,
-//                        fontWeight = FontWeight.Bold,
-//                        color = Color.White,
-//                    )
-//                }
-//            }
-//        ) {
-//            Column(
-//                modifier = Modifier.background(Color.White)
-//                    .fillMaxWidth()
-//                    .fillMaxHeight(),
-//                verticalArrangement = Arrangement.Top,
-//                horizontalAlignment = Alignment.CenterHorizontally
-//            ) {
-//                Text(text = "Texto 1")
-//                Text(text = "Texto 2")
-//                Text(text = "Texto 3")
-//            }
-//
-//        }
-
-
-
-        //Column and Rows
-//        Row(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .fillMaxHeight(),
-//            verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.Center
-//        ) {
-//            Surface(
-//                color = Color.Red,
-//                modifier = Modifier.width(100.dp).height(100.dp)
-//            ) {
-//
-//            }
-//            Surface(
-//                color = Color.Blue,
-//                modifier = Modifier.width(100.dp).height(100.dp)
-//            ) {
-//
-//            }
-//            Surface(
-//                color = Color.Magenta,
-//                modifier = Modifier.width(100.dp).height(100.dp)
-//            ) {
-//
-//            }
-//        }
-
-
-
-        //Box
-//        Box(
-//            modifier = Modifier.fillMaxSize()
-//        ) {
-//            Surface(
-//                color = Color.Green,
-//                modifier = Modifier.width(100.dp).height(100.dp)
-//            ) {
-//
-//            }
-//            Surface(
-//                color = Color.Blue,
-//                modifier = Modifier.width(100.dp).height(100.dp)
-//            ) {
-//
-//            }
-//        }
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Botao(
+                "Cadastrar",
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {
+                    println("Usuario Cadastrado")
+                }
+            )
+            Botao(
+                "Login",
+                modifier = Modifier.fillMaxWidth()
+                    .padding(20.dp, 20.dp, 20.dp, 0.dp),
+                onClick = {
+                    println("Login feito com sucesso!")
+                }
+            )
+        }
 
     }
 
