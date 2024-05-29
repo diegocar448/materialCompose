@@ -137,19 +137,20 @@ fun SalvarContato(navController: NavController){
 
             Botao(
                 onClick = {
-                    if (
-                        nome.isEmpty() ||
-                        sobreNome.isEmpty() ||
-                        idade.isEmpty() ||
-                        celular.isEmpty()
-                        ){
-                        println("Preencha todos os campo! $nome \n $sobreNome \n $idade \n $celular")
-                    }else{
-                        println("Usuario criado no banco de dados! $nome \n" +
-                                " $sobreNome \n" +
-                                " $idade \n" +
-                                " $celular")
-                    }
+//                    if (
+//                        nome.isEmpty() ||
+//                        sobreNome.isEmpty() ||
+//                        idade.isEmpty() ||
+//                        celular.isEmpty()
+//                        ){
+//                        println("Preencha todos os campo! $nome \n $sobreNome \n $idade \n $celular")
+//                    }else{
+//                        println("Usuario criado no banco de dados! $nome \n" +
+//                                " $sobreNome \n" +
+//                                " $idade \n" +
+//                                " $celular")
+//                    }
+                    navController.navigate("atualizarContato")
                 },
                 texto = "Salvar"
             )
