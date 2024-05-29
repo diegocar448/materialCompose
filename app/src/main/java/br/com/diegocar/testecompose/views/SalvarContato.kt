@@ -3,6 +3,7 @@ package br.com.diegocar.testecompose.views
 import Purple500
 import WHITE
 import android.annotation.SuppressLint
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,6 +38,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.diegocar.testecompose.R
+import br.com.diegocar.testecompose.componentes.Botao
+import br.com.diegocar.testecompose.componentes.OutlinedTextFieldCustom
+
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun SalvarContato(navController: NavController){
@@ -68,9 +72,9 @@ fun SalvarContato(navController: NavController){
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            OutlinedTextField(
+            OutlinedTextFieldCustom(
                 value = nome,
-                onValueChange =  {
+                onValueChange = {
                     nome = it
                 },
                 label = {
@@ -79,18 +83,14 @@ fun SalvarContato(navController: NavController){
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text
                 ),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    cursorColor = Purple500,
-                    focusedBorderColor = Purple500
-                ),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp, 80.dp, 20.dp, 10.dp),
-                maxLines = 1
             )
-            OutlinedTextField(
+
+            OutlinedTextFieldCustom(
                 value = sobreNome,
-                onValueChange =  {
+                onValueChange = {
                     sobreNome = it
                 },
                 label = {
@@ -99,18 +99,13 @@ fun SalvarContato(navController: NavController){
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text
                 ),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    cursorColor = Purple500,
-                    focusedBorderColor = Purple500
-                ),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp, 0.dp, 20.dp, 10.dp),
-                maxLines = 1
             )
-            OutlinedTextField(
+            OutlinedTextFieldCustom(
                 value = idade,
-                onValueChange =  {
+                onValueChange = {
                     idade = it
                 },
                 label = {
@@ -119,19 +114,13 @@ fun SalvarContato(navController: NavController){
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number
                 ),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    cursorColor = Purple500,
-                    focusedBorderColor = Purple500
-                ),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp, 0.dp, 20.dp, 10.dp),
-                maxLines = 1
             )
-
-            OutlinedTextField(
+            OutlinedTextFieldCustom(
                 value = celular,
-                onValueChange =  {
+                onValueChange = {
                     celular = it
                 },
                 label = {
@@ -140,33 +129,30 @@ fun SalvarContato(navController: NavController){
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Phone
                 ),
-                colors = TextFieldDefaults.outlinedTextFieldColors(
-                    cursorColor = Purple500,
-                    focusedBorderColor = Purple500
-                ),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(20.dp, 0.dp, 20.dp, 10.dp),
-                maxLines = 1
             )
-            Button(
+            
+
+            Botao(
                 onClick = {
-
+                    if (
+                        nome.isEmpty() ||
+                        sobreNome.isEmpty() ||
+                        idade.isEmpty() ||
+                        celular.isEmpty()
+                        ){
+                        println("Preencha todos os campo! $nome \n $sobreNome \n $idade \n $celular")
+                    }else{
+                        println("Usuario criado no banco de dados! $nome \n" +
+                                " $sobreNome \n" +
+                                " $idade \n" +
+                                " $celular")
+                    }
                 },
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = Purple500
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
-
-
-                ) {
-                Text(text="Salvar", fontSize = 18.sp, color = WHITE)
-            }
-
-
-
+                texto = "Salvar"
+            )
         }
     }
 }

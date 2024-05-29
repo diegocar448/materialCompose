@@ -1,31 +1,33 @@
 package br.com.diegocar.testecompose.componentes
 
+import Purple500
+import WHITE
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
-fun Botao(texto: String, modifier: Modifier, onClick: () -> Unit){
+fun Botao(
+    onClick: () -> Unit,
+    texto: String
+){
     Button(
         onClick,
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = Color(0xFF2196F3),
-            contentColor = Color.White
+            backgroundColor = Purple500
         ),
-        modifier = modifier
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(20.dp)
+
+
     ) {
-        Text(text = "$texto")
+        Text(text=texto, fontSize = 18.sp, color = WHITE)
     }
-
-}
-
-
-@Preview
-@Composable
-private fun BotaoPreview(){
-    Botao("Login", modifier = Modifier, onClick = {})
 }
