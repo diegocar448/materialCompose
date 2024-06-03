@@ -8,23 +8,22 @@ import br.com.diegocar.testecompose.const.Constantes
 import br.com.diegocar.testecompose.dao.ContatoDao
 import br.com.diegocar.testecompose.model.Contato
 
-
 @Database(entities = [Contato::class], version = 1)
-abstract class AppDatabase: RoomDatabase() {
-    abstract fun ContatoDao(): ContatoDao
+abstract class AppDatabase : RoomDatabase() {
 
-    companion object{
+    abstract fun contatoDao(): ContatoDao
+
+    companion object {
         @Volatile
-        private var INSTANCE:AppDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase{
-            return INSTANCE ?: synchronized(this){
+        fun getInstance(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
                     Constantes.DB_CONTATOS
                 ).build()
-
                 INSTANCE = instance
                 instance
             }

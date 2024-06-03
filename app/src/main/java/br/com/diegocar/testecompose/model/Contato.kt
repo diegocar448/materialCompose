@@ -7,12 +7,9 @@ import br.com.diegocar.testecompose.const.Constantes
 
 @Entity(tableName = Constantes.TABLE_CONTATOS)
 data class Contato(
-    @PrimaryKey(autoGenerate = true) var uid: Int = 0,
+    @PrimaryKey(autoGenerate = true) val uid: Int = 0,
     @ColumnInfo(name = "nome") val nome: String,
     @ColumnInfo(name = "sobrenome") val sobrenome: String,
     @ColumnInfo(name = "idade") val idade: String,
     @ColumnInfo(name = "telefone") val telefone: String
-){
-//    @PrimaryKey(autoGenerate = true)
-//    var uid: Int = 0
-}
+)
