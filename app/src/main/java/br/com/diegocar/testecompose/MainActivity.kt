@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import br.com.diegocar.testecompose.views.AtualizarContato
 import br.com.diegocar.testecompose.views.ListaContatos
 import br.com.diegocar.testecompose.views.SalvarContato
@@ -31,8 +32,11 @@ class MainActivity : ComponentActivity() {
                     composable("salvarContato"){
                         SalvarContato(navController)
                     }
-                    composable("atualizarContato"){
-                        AtualizarContato(navController)
+                    composable(
+                        "atualizarContato/{uid}",
+                        arguments = listOf(navArgument("uid"){})
+                    ){
+                        AtualizarContato(navController, it.arguments?.getString("uid").toString())
                     }
                 }
             }

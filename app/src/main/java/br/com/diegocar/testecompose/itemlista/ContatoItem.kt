@@ -36,6 +36,7 @@ fun ContatoItem(
     val sobrenome = listaContatos[position].sobreNome
     val idade = listaContatos[position].idade
     val celular = listaContatos[position].celular
+    val uid = listaContatos[position].uid
 
     Card(
         backgroundColor = WHITE,
@@ -81,7 +82,7 @@ fun ContatoItem(
 
             Button(
                 onClick = {
-                          navController.navigate("atualizarContato")
+                    navController.navigate("atualizarContato/${uid}")
                 },
                 modifier = Modifier.constrainAs(btAtualizar){
                     start.linkTo(txtCelular.end, margin = 30.dp)
