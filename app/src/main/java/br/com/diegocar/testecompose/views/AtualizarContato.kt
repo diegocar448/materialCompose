@@ -163,7 +163,7 @@ fun AtualizarContato(navController: NavController, uid: String){
                                 Toast.LENGTH_SHORT
                             ).show()
                             navController.popBackStack()
-                        }else{q
+                        }else{
                             Toast.makeText(
                                 context,
                                 "Preencha todos os campos!",
