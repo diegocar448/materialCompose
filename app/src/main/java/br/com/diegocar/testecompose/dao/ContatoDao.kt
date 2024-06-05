@@ -12,7 +12,7 @@ interface ContatoDao {
     fun gravar(listaContatos: List<Contato>)
 
     @Query("SELECT * FROM tabela_contatos ORDER BY nome ASC")
-    fun getContatos(): List<Contato>
+    fun getContatos(): MutableList<Contato>
 
     @Query("UPDATE tabela_contatos SET nome = :novoNome, sobrenome = :novoSobrenome, idade = :novaIdade, celular = :novoCelular WHERE uid = :id")
     fun atualizar(id: Int, novoNome: String, novoSobrenome: String, novaIdade: String, novoCelular: String)
